@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smart.wen.mapper.TestInsertMapper">
+    <resultMap id="testInsert" type="com.smart.wen.entity.Test">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+    </resultMap>
+    <insert id="insert">
+
+    </insert>
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+        <properties resource="db.properties"/>
+
+    <!--<settings>
+        &lt;!&ndash;        &ndash;&gt;
+        <setting name="" value=""/>
+        <setting name="cacheEnabled" value="true"/>
+        &lt;!&ndash;设置日志级别&ndash;&gt;
+        <setting name="logImpl" value=""/>
+        &lt;!&ndash;开启一级缓存&ndash;&gt;
+        &lt;!&ndash;开启延迟加载，用到的时候才去查询&ndash;&gt;
+        <setting name="lazyLoadingEnabled" value="true"/>
+        &lt;!&ndash;开启立即加载，把相关联的类也查询出来，多表查询&ndash;&gt;
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="useGeneratedKeys" value="false"/>
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+        <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <setting name="defaultStatementTimeout" value="25"/>
+        <setting name="defaultFetchSize" value="100"/>
+        <setting name="safeRowBoundsEnabled" value="false"/>
+        &lt;!&ndash;开启驼峰命名映射，没什么用&ndash;&gt;
+        <setting name="mapUnderscoreToCamelCase" value="false"/>
+        <setting name="localCacheScope" value="SESSION"/>
+        <setting name="jdbcTypeForNull" value="OTHER"/>
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+    </settings>-->
+
+    <!--配置别名-->
+    <typeAliases>
+        <!--设置类的前缀，对于mapper标签下的作用-->
+        <package name="com.smart.wen.entity"/>
+    </typeAliases>
+
+    <!--EJB java提出来的企业级开发标准-->
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driverClass}"/>
+                <property name="url" value="${db.url}"/>
+                <property name="username" value="${db.username}"/>
+                <property name="password" value="${db.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/TestSelectMapper.xml"/>
+        <mapper resource="mapper/ProductMapper.xml"/>
+        <mapper resource="mapper/CateMappper.xml"/>
+    </mappers>
+</configuration>

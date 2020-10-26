@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smart.wen.mapper.TestSelectMapper">
+    <!--整个项目的类都可以的-->
+    <resultMap id="testResult" type="com.smart.wen.entity.Test">
+        <id column="id" property="id"></id>
+    </resultMap>
+    <!--属性resultType直接使用定义好的类，指向一个对象，不推荐，字段名必须规范-->
+    <select id="对应方法的名称" resultMap="testResult">
+
+    </select>
+
+    <select id="selectTestById" resultMap="testResult">
+        select *
+        from test
+        where id = #{id}
+    </select>
+    <select id="selectList" resultMap="testResult">
+        select * from test limit #{page},#{size}
+    </select>
+</mapper>
