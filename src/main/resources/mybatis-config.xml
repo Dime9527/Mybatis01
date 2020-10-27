@@ -55,5 +55,10 @@
         <mapper resource="mapper/TestSelectMapper.xml"/>
         <mapper resource="mapper/ProductMapper.xml"/>
         <mapper resource="mapper/CateMappper.xml"/>
+        <mapper resource="mapper/OrderMapper.xml"/>
+        <mapper resource="mapper/OrderItmMapper.xml"/>
+        <mapper resource="mapper/AddressMapper.xml"/>
+        <mapper resource="mapper/RolesMapper.xml"/>
+        <mapper resource="mapper/PrivilegeMapper.xml"/>
     </mappers>
 </configuration>

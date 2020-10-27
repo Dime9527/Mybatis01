@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smart.wen.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.smart.wen.entity.Order">
+        <id property="orderId" column="order_id"></id>
+        <result property="orderNo" column="order_no"></result>
+        <result property="status" column="status"></result>
+        <result property="createDate" column="create_date"></result>
+        <result property="userId" column="user_id"></result>
+    </resultMap>
+
+    <resultMap id="listResultMap" type="com.smart.wen.entity.Order" extends="BaseResultMap">
+        <association property="user" resultMap="com.smart.wen.mapper.UserMapper.baseResultMap"/>
+</resultMap>
+
+<resultMap id="collectionResultMapper" type="com.smart.wen.entity.Order" extends="BaseResultMap">
+    <association property="orderItms" resultMap="com.smart.wen.mapper.OrderItmMapper.BaseResultMap"></association>
+</resultMap>
+
+<select id="selectOrderByNo" resultMap="listResultMap">
+    <!-- 多表查询-->
+    select * from t_order o left join user u on o.user_id =u.id
+where order_no=#{no}
+</select>
+<!--两个表的列名相等时要写明，不然会报错-->
+<select id="selectOrderByUserId" resultMap="collectionResultMapper">
+    select * from t_order o left join order_itm oi on o.order_id = oi.order_id
+where o.user_id=#{userId}
+</select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smart.wen.mapper.OrderItmMapper">
+    <resultMap id="BaseResultMap" type="OrderItm">
+    <id property="itemId" column="item_id"></id>
+    <result property="orderId" column="order_id"></result>
+    <result property="itemId" column="item_id"></result>
+    <result property="productImg" column="product_img"></result>
+    <result property="productName" column="product_name"></result>
+    <result property="productPrice" column="product_price"></result>
+    <result property="productQuantity" column="product_quantity"></result>
+</resultMap>
+</mapper>
